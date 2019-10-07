@@ -1,3 +1,6 @@
 .TodoItem {
-  
+  list-style: none;
+}
+.TodoItem[data-checked] {
+  text-decoration: line-through;
 }
