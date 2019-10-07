@@ -28,11 +28,13 @@ export default function TodoList ({ items = {} }) {
 
   return (
     <div className="TodoList">
-      <h2>Things you need to stress over</h2>
+      <h3>Things you need to stress over</h3>
       <ul>
-        {unchecked.map((item) => <TodoItem key={item} label={item} onClick={updateTodoItem(item)}/>)}
+        {unchecked.length 
+          ? unchecked.map((item) => <TodoItem key={item} label={item} onClick={updateTodoItem(item)}/>)
+          : <em>🚀 Looks like you are all caught up 🎉</em> }
       </ul>
-      <h2>Done</h2>
+      <h3>Done</h3>
       <ul>
         {checked.map((item) => <TodoItem key={item} label={item} checked onClick={updateTodoItem(item)}/>)}
       </ul>

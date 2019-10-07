@@ -1,6 +1,19 @@
 .TodoItem {
   list-style: none;
+  margin: 5px;
+  padding: 5px;
+  cursor: pointer;
 }
+
+.TodoItem label, .TodoItem input {
+  cursor: pointer;
+}
+
+.TodoItem input {
+  transform: scale(1.5);
+  margin-right: 15px;
+}
+
 .TodoItem[data-checked] {
   text-decoration: line-through;
 }
