@@ -9,8 +9,10 @@ export default function TodoItem({ label, checked, onClick }) {
       // reflect to an attribute in the DOM - for styling
       data-checked={checked ? '' : undefined}
     >
-      <input type="checkbox" checked={!!checked} onChange={() => onClick(!checked)}/>
-      {label}
+      <input id={label} type="checkbox" checked={!!checked} onChange={() => onClick(!checked)}/>
+      <label htmlFor={label}>
+        {label}
+      </label>
     </li>
   )
 }
