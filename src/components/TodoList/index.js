@@ -25,19 +25,35 @@ export default function TodoList ({ items = {} }) {
       setTodos(latest => Object.assign({}, latest, {[item]: checked}))
     } 
   }
+  
+  function checkForSubmit (event) {
+    let todo = event.target.value;
+    if (todo && event.key === 'Enter') {
+      setTodos(latest => Object.assign({}, latest, {[todo]: false}))
+      event.target.value = '' // reset field
+    }
+  }
 
   return (
     <div className="TodoList">
-      <h3>Things you need to stress over</h3>
+      <h3>Things you need to do</h3>
       <ul>
-        {unchecked.length 
-          ? unchecked.map((item) => <TodoItem key={item} label={item} onClick={updateTodoItem(item)}/>)
-          : <em>🚀 Looks like you are all caught up 🎉</em> }
+        { unchecked.length 
+           ? unchecked.map((item) => <TodoItem key={item} label={item} onClick={updateTodoItem(item)}/>)
+           : <em>🚀 Looks like you are all caught up 🎉</em> }
       </ul>
-      <h3>Done</h3>
-      <ul>
-        {checked.map((item) => <TodoItem key={item} label={item} checked onClick={updateTodoItem(item)}/>)}
-      </ul>
+      
+      { checked.length > 0 && (
+        <>
+          <h3>Completed</h3>
+          <ul>
+            { checked.map((item) => <TodoItem key={item} label={item} onClick={updateTodoItem(item)} checked/>) }
+          </ul>
+        </>
+      )}
+
+      <label>Add an item to list below</label>
+      <input onKeyPress={checkForSubmit}/>
     </div>
   )
 }
