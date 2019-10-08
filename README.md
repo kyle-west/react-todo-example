@@ -1,6 +1,6 @@
 # React Example: Todo App
 
-This is an example app for my SORT 2019 presentation.
+This is an example app for my SORT 2019 presentation. See [working example](https://kyle-west.github.io/react-todo-example/)
 
 <img width="500" src="./public/screenshot.png">
 
