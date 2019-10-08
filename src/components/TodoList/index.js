@@ -15,22 +15,19 @@ function sortChecked(items) {
   return { unchecked, checked }
 }
 
-export default function TodoList ({ items = {} }) {
+export default function TodoList ({ items = { /* [label]: isChecked */ } }) {
   const [ todos, setTodos ] = React.useState(items);
   const { unchecked, checked } = sortChecked(todos)
   
-  // use a closure to snatch the item key value
-  function updateTodoItem (item) {
-    return (checked) => {
-      setTodos(latest => Object.assign({}, latest, {[item]: checked}))
-    } 
-  }
+  // TODO: add handler to update the checked state for an individual <TodoItem />
+  // HINT: closures are your friend here.
   
+  // Handle a new entry from the user
   function checkForSubmit (event) {
     let todo = event.target.value;
     if (todo && event.key === 'Enter') {
-      setTodos(latest => Object.assign({}, latest, {[todo]: false}))
-      event.target.value = '' // reset field
+      // TODO: add an item to the `todos` state object
+      //   don't forget to reset field
     }
   }
 
@@ -38,19 +35,15 @@ export default function TodoList ({ items = {} }) {
     <div className="TodoList">
       <h3>Things you need to do</h3>
       <ul>
-        { unchecked.length 
-           ? unchecked.map((item) => <TodoItem key={item} label={item} onClick={updateTodoItem(item)}/>)
-           : <em>🚀 Looks like you are all caught up 🎉</em> }
+        {/* TODO: For each unchecked item render a <TodoItem /> */}
+        {/* STRETCH: handle when no items left unchecked */}
       </ul>
       
-      { checked.length > 0 && (
-        <>
-          <h3>Completed</h3>
-          <ul>
-            { checked.map((item) => <TodoItem key={item} label={item} onClick={updateTodoItem(item)} checked/>) }
-          </ul>
-        </>
-      )}
+      <h3>Completed</h3>
+      <ul>
+        {/* TODO: For each checked item render a <TodoItem /> */}
+        {/* STRETCH: handle when no items have been checked */}
+      </ul>
 
       <label>Add an item to list below</label>
       <input onKeyPress={checkForSubmit}/>

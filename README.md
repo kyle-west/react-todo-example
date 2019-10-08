@@ -1,15 +1,16 @@
 # React Example: Todo App
 
-This is an example app for my SORT 2019 presentation.
+This is the Quick Start version of this example app. Styling, and other major parts are already completed for you. There are 5 `TODO`s in the code for you to complete as an exercise. You only need to work in the following files:
+
+- `/src/components/TodoItem/index.js`
+- `/src/components/TodoList/index.js`
+
+Remember to keep state management in the `TodoList` element. Good luck. Hit me up on Twitter ([@Kyl3W3st](https://twitter.com/Kyl3W3st)) if you have any questions.
+
+
+You are making the app below:
 
 <img width="500" src="./public/screenshot.png">
 
-Look at [PR #1](https://github.com/kyle-west/react-todo-example/pull/1) to get an understanding of the changes I made from a clean Create React App.
+Look at the `master` branch for the completed version.
 
-To see the initial state from Create React App run
-
-```sh
-git checkout initial-cra
-```
-
-<sub>This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).</sub>
